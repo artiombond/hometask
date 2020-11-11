@@ -11,7 +11,7 @@ public class LinesFromFileSort {
     public static void main(String[] args) throws Exception {
 
         List<String> textFromFile = new ArrayList<>();
-        String file = "src/main/java/com/epam/learning/javaCollections/optionalTask/text.txt";
+        String file = "src\\main\\java\\com\\github\\artiombond\\collectionstask\\optionaltask\\text.txt";
         Scanner scanner = new Scanner(new File(file));
         while(scanner.hasNextLine()){
             textFromFile.add(scanner.nextLine());

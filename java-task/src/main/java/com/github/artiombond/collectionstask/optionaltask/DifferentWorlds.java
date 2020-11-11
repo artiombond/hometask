@@ -9,7 +9,7 @@ public class DifferentWorlds {
 
     public static void main(String[] args) throws Exception {
         HashSet<String> words = new HashSet<>();
-        String file = "src/main/java/com/epam/learning/javaCollections/optionalTask/text.txt";
+        String file = "src\\main\\java\\com\\github\\artiombond\\collectionstask\\optionaltask\\text.txt";
         Scanner scanner = new Scanner(new File(file));
         while(scanner.hasNextLine()){
             Stream.of(scanner.nextLine().split("[^a-zA-Z&&[^']]")).map(String::toLowerCase)
