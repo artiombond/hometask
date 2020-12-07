@@ -1,7 +1,6 @@
 package com.github.artiombond.exceptions.university;
 
 import com.github.artiombond.exceptions.MarkExeption;
-
 import java.util.ArrayList;
 
 public class Subject {

@@ -1,6 +1,7 @@
 package com.github.artiombond.exceptions;
 
 public class MarkExeption extends Exception {
+
     public MarkExeption() {
     }
 

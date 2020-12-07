@@ -1,7 +1,6 @@
 package com.github.artiombond.exceptions.university;
 
 import com.github.artiombond.exceptions.UniversityExeption;
-
 import java.util.ArrayList;
 
 public class Group {

@@ -2,7 +2,9 @@ package com.github.artiombond.exceptions.university;
 
 import com.github.artiombond.exceptions.UniversityExeption;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 
 public class Student {
     private String name;

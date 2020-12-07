@@ -1,8 +1,6 @@
 package com.github.artiombond.exceptions;
 
-
 import com.github.artiombond.exceptions.university.*;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
