@@ -1,15 +1,24 @@
-package com.github.artiombond.exceptions.university;
+package com.github.artiombond.exception.entity;
 
-import com.github.artiombond.exceptions.MarkExeption;
+import com.github.artiombond.exception.exceptions.IllegalMarkException;
 import java.util.ArrayList;
 
 public class Subject {
     private SubjectName name;
     private ArrayList<Integer> marks;
 
-    public void addMark(int mark) throws MarkExeption {
+    public Subject(SubjectName subjectName, ArrayList<Integer> marks) {
+        this.name = subjectName;
+        this.marks = marks;
+    }
+    public Subject(SubjectName name) {
+        this.name = name;
+        marks = new ArrayList<>();
+    }
+
+    public void addMark(int mark) throws IllegalMarkException {
         if (mark < 0 || mark > 10)
-            throw new MarkExeption("illegal mark");
+            throw new IllegalMarkException("Subject: " + name + " IllegalMark: " + mark);
         marks.add(mark);
     }
 
@@ -31,16 +40,6 @@ public class Subject {
 
     public void setMarks(ArrayList<Integer> marks) {
         this.marks = marks;
-    }
-
-    public Subject(SubjectName subjectName, ArrayList<Integer> marks) {
-        this.name = subjectName;
-        this.marks = marks;
-    }
-
-    public Subject(SubjectName name) {
-        this.name = name;
-        marks = new ArrayList<>();
     }
 
     @Override
