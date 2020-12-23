@@ -1,7 +1,6 @@
 package com.github.artiombond.threads;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
-
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
