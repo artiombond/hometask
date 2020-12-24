@@ -10,7 +10,8 @@ import com.github.artiombond.clean_code.models.ExperimentalTypes;
 import com.github.artiombond.clean_code.models.MilitaryType;
 
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.List;
 
