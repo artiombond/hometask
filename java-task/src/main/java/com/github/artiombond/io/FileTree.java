@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class FileTree {
-    static int levelOfTree = 1;
+    static int treeDepth = 1;
     static ArrayList<String> treeOfDirectories = new ArrayList();
 
     public static ArrayList<String> getTreeOfDirectoriesToArrayList(File directory){
@@ -15,23 +15,23 @@ public class FileTree {
         for (File file:files){
             String line = "";
             if (file.isFile()){
-                for (int i = 0; i < levelOfTree*5; i++) {
+                for (int i = 0; i < treeDepth *5; i++) {
                     line += " ";
                 }
                 line += file.getName();
                 treeOfDirectories.add(line);
             }else {
-                for (int i = 0; i < levelOfTree*5 - 2; i++) {
+                for (int i = 0; i < treeDepth *5 - 2; i++) {
                     line += " ";
                 }
                 line += "--" + file.getName();
                 treeOfDirectories.add(line);
-                levelOfTree++;
+                treeDepth++;
                 getTreeOfDirectoriesToArrayList(file);
-                levelOfTree--;
+                treeDepth--;
                 for (int i = treeOfDirectories.indexOf(line); i >= 0; i--){
-                    if (treeOfDirectories.get(i).charAt(levelOfTree*5 - 3) == ' '){
-                        String replaсe = treeOfDirectories.get(i).substring(0,levelOfTree*5 - 3) + "|" + treeOfDirectories.get(i).substring(levelOfTree*5 - 2);
+                    if (treeOfDirectories.get(i).charAt(treeDepth *5 - 3) == ' '){
+                        String replaсe = treeOfDirectories.get(i).substring(0, treeDepth *5 - 3) + "|" + treeOfDirectories.get(i).substring(treeDepth *5 - 2);
                         treeOfDirectories.set(i, replaсe );
                     }else {
                         break;
