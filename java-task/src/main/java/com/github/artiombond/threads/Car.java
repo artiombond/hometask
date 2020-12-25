@@ -19,13 +19,10 @@ public class Car extends Thread {
             parkingPlace = parking.getPlace(200);
             System.out.println(name + " took place № " + parkingPlace);
             TimeUnit.MILLISECONDS.sleep(600);
+            parking.returnPlace(parkingPlace);
+            System.out.println(name + " go away from place " + parkingPlace);
         } catch (NoPlacesException | InterruptedException exception) {
             System.out.println(name + " go to another parking ");
-        }finally {
-            if (parkingPlace!= 0){
-                parking.returnPlace(parkingPlace);
-                System.out.println(name + " go away from place " + parkingPlace);
-            }
         }
     }
 }

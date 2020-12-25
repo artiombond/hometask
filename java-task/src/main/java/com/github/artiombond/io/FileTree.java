@@ -4,6 +4,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class FileTree {
     static int treeDepth = 1;
@@ -42,43 +44,21 @@ public class FileTree {
         return treeOfDirectories;
     }
 
-    public static int getCountOfDirectories(File directory ){
-        int countOfDirectories = 0;
-        File[] files = directory.listFiles();
-        for (File file:files){
-            if (file.isDirectory()){
-                countOfDirectories += 1 + getCountOfDirectories(file);
-            }
-        }
-        return countOfDirectories;
+    public static int getCountOfDirectories(ArrayList<String> lines){
+        return (int) lines.stream().filter(line -> line.contains("|-")).count();
     }
 
-    public static int getCountOfFiles(File directory){
-        int countFiles = 0;
-        File[] files = directory.listFiles();
-        for (File file:files){
-            if (file.isDirectory()){
-                countFiles += getCountOfFiles(file);
-            }else {
-                countFiles++;
-            }
-        }
-        return countFiles;
+    public static int getCountOfFiles(ArrayList<String> lines){
+        return (int) lines.stream().filter(line -> !line.contains("|-")).count();
     }
 
-    public static float getFileNamesLength(File directory){
-        int lengthOfFileNames = 0;
-        File[] files = directory.listFiles();
-        for (File file:files){
-            if (file.isDirectory()){
-                lengthOfFileNames += getFileNamesLength(file);
-            }else {
-                lengthOfFileNames += file.getName().length();
-            }
-        }
-        return lengthOfFileNames;
+    public static double getAverageFileLength(ArrayList<String> lines){
+        return lines.stream().filter(line -> !line.contains("|-")).mapToInt((line) -> line.replaceAll("^(\\|*\\s*)*", "").length()).average().getAsDouble();
     }
 
+    public static double getAverageCountOfFilesInDirectories(ArrayList<String> lines){
+        return getCountOfFiles(lines)/getCountOfDirectories(lines);
+    }
 
     public static void main(String[] args) {
 
@@ -94,12 +74,16 @@ public class FileTree {
             }
         }else if(fileInput.exists()){
             try(BufferedReader bufferedReader = new BufferedReader(new FileReader(fileInput))){
-                String directoryPath = bufferedReader.readLine();
-                File directory = new File(directoryPath);
-                System.out.println("Count of directories: " + getCountOfDirectories(directory));
-                System.out.println("Count of files: " + getCountOfFiles(directory));
-                System.out.println("Average count of files in directory: " + (float) getCountOfFiles(directory)/getCountOfDirectories(directory));
-                System.out.println("Average file name length: " + getFileNamesLength(directory)/getCountOfFiles(directory));
+                ArrayList lines = new ArrayList();
+                String line;
+                while ((line = bufferedReader.readLine()) != null){
+                    lines.add(line);
+                }
+                System.out.println(getCountOfDirectories(lines));
+                System.out.println(getCountOfFiles(lines));
+                System.out.println(getAverageFileLength(lines));
+                System.out.println(getAverageCountOfFilesInDirectories(lines));
+
             }catch (IOException e){
                 e.printStackTrace();
             }

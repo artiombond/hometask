@@ -1,8 +1,8 @@
   |  text.txt
   |--Action Pack Lite - RocketStock
+  |    |  --
   |    |  .DS_Store
   |    |  15 Percent Off Coupon.pdf
-  |    |  Action Pack Lite License.pdf
   |    |--Burn
   |    |       .DS_Store
   |    |       Fire_Ceiling_60fps_04_1.mp4

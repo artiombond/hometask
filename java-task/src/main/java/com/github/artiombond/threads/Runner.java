@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Runner {
     public static void main(String[] args) {
+
         Parking parking = new Parking(5);
 
         for (int i = 0; i < 10; i ++){
