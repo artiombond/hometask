@@ -1,12 +1,9 @@
 package com.github.artiombond.page;
 
-import com.github.artiombond.model.ComputeEngine;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class GoogleCloudPlatformPricingCalculatorEstimate extends AbstractPage {
 
@@ -18,8 +15,6 @@ public class GoogleCloudPlatformPricingCalculatorEstimate extends AbstractPage {
     WebElement emailInput;
     @FindBy (xpath = "//button[@aria-label = 'Send Email']")
     WebElement sendEmailButton;
-
-
 
     public GoogleCloudPlatformPricingCalculatorEstimate(WebDriver driver) {
         super(driver);

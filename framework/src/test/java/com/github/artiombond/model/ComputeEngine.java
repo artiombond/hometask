@@ -27,10 +27,6 @@ public class ComputeEngine {
     }
 
 
-    public String getMachineClass() {
-        return machineClass;
-    }
-
     public int getNumberOfInstances() {
         return numberOfInstances;
     }
@@ -63,4 +59,24 @@ public class ComputeEngine {
         return committedUsage;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ComputeEngine that = (ComputeEngine) o;
+        return numberOfInstances == that.numberOfInstances &&
+                numberOfGPUs == that.numberOfGPUs &&
+                Objects.equals(machineClass, that.machineClass) &&
+                Objects.equals(machineSeries, that.machineSeries) &&
+                Objects.equals(machineType, that.machineType) &&
+                Objects.equals(gpuType, that.gpuType) &&
+                Objects.equals(localSSD, that.localSSD) &&
+                Objects.equals(datacentrLocation, that.datacentrLocation) &&
+                Objects.equals(committedUsage, that.committedUsage);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(numberOfInstances, machineClass, machineSeries, machineType, numberOfGPUs, gpuType, localSSD, datacentrLocation, committedUsage);
+    }
 }
