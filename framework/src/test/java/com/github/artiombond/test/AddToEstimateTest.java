@@ -2,13 +2,9 @@ package com.github.artiombond.test;
 
 
 import com.github.artiombond.model.ComputeEngine;
-import com.github.artiombond.page.GoogleCloudMainPage;
-import com.github.artiombond.page.GoogleCloudPlatformPricingCalculatorEstimate;
 import com.github.artiombond.page.GoogleCloudPlatformPricingCalculatorPage;
 import com.github.artiombond.service.ComputeEngineCreator;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class AddToEstimateTest extends CommonConditions{

@@ -1,7 +1,5 @@
 package com.github.artiombond.test;
 
-
-
 import com.github.artiombond.service.ComputeEngineCreator;
 import com.github.artiombond.model.ComputeEngine;
 import com.github.artiombond.page.GoogleCloudMainPage;
@@ -16,7 +14,7 @@ public class CalculatorEmailTest extends CommonConditions{
     private TenMinuteMailPaige tenMinuteMailPaige;
 
     @Test
-    public void runTest(){
+    public void sendEstimateToEmail(){
         ComputeEngine computeEngine = ComputeEngineCreator.getComputeEngineWithCredentials();
         calculatorEstimate = new GoogleCloudMainPage(driver)
                 .openPage()
