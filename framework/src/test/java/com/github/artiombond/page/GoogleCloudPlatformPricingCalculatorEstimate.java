@@ -22,6 +22,7 @@ public class GoogleCloudPlatformPricingCalculatorEstimate extends AbstractPage {
     }
 
     public GoogleCloudPlatformPricingCalculatorEstimate invokeEmailEstimate(){
+        ((Locatable) emailEstimateButton).getCoordinates().inViewPort();
         emailEstimateButton.click();
         return this;
     }
