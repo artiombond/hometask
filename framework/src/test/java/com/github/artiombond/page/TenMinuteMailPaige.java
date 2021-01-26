@@ -22,6 +22,7 @@ public class TenMinuteMailPaige extends AbstractPage {
     }
 
     public String getEmailAddress(){
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.attributeToBeNotEmpty(emailAddress, "value"));
         return emailAddress.getAttribute("value");
     }
 

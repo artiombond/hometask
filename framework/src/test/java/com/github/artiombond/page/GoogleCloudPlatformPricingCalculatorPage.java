@@ -1,7 +1,9 @@
 package com.github.artiombond.page;
 
 import com.github.artiombond.model.ComputeEngine;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Locatable;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -55,14 +57,18 @@ public class GoogleCloudPlatformPricingCalculatorPage extends AbstractPage {
         selectFromDropDownByName(localSSDDropDown, computeEngine.getLocalSSD());
         selectFromDropDownByName(datacenterLocationDropDown, computeEngine.getDatacentrLocation());
         selectFromDropDownByName(committedUsageDropDown, computeEngine.getCommittedUsage());
+        ((Locatable) addToEstimateButton).getCoordinates().inViewPort();
         addToEstimateButton.click();
         logger.info("Form filled and add to estimate");
         return  new GoogleCloudPlatformPricingCalculatorEstimate(driver);
     }
 
     private void selectFromDropDownByName(WebElement selectDropDown, String selectableElement){
+        ((Locatable) selectDropDown).getCoordinates().inViewPort();
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
                 .until(ExpectedConditions.elementToBeClickable(selectDropDown)).click();
+        ((Locatable) By.xpath(String.format(containerDropDownLocator,selectDropDown.getAttribute("aria-owns"))
+                + String.format(optionDropDownLocator,selectableElement)).findElement(driver)).getCoordinates().inViewPort();
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
                 .until(ExpectedConditions
                         .elementToBeClickable(By.xpath(String.format(containerDropDownLocator,selectDropDown.getAttribute("aria-owns"))

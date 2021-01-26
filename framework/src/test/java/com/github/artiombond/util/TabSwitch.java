@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class TabSwitch {
 
-    public TabSwitch(WebDriver driver) { }
+    public TabSwitch() { }
 
     public static void createNewTab(WebDriver driver){
         int countOfTabs = driver.getWindowHandles().size();

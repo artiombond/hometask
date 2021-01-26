@@ -1,7 +1,5 @@
 package com.github.artiombond.test;
 
-
-import com.github.artiombond.util.TabSwitch;
 import com.github.artiombond.driver.DriverSingleton;
 import com.github.artiombond.util.TestListener;
 import org.openqa.selenium.WebDriver;

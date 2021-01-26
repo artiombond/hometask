@@ -3,6 +3,7 @@ package com.github.artiombond.page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Locatable;
 import org.openqa.selenium.support.FindBy;
 
 public class GoogleCloudPlatformPricingCalculatorEstimate extends AbstractPage {
@@ -28,7 +29,9 @@ public class GoogleCloudPlatformPricingCalculatorEstimate extends AbstractPage {
     public GoogleCloudPlatformPricingCalculatorEstimate sendEmail(String email){
         driver.switchTo().frame(driver.findElement(By.xpath("//*[@id = 'cloud-site']/devsite-iframe/iframe")));
         driver.switchTo().frame("myFrame");
+        ((Locatable) emailInput).getCoordinates().inViewPort();
         emailInput.sendKeys(email);
+        ((Locatable) sendEmailButton).getCoordinates().inViewPort();
         sendEmailButton.click();
         logger.info("Estimate sent to email");
         return this;
