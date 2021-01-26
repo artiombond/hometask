@@ -3,6 +3,7 @@ package com.github.artiombond.driver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverSingleton {
     private static WebDriver driver;
@@ -13,6 +14,7 @@ public class DriverSingleton {
             switch (System.getProperty("browser")){
                 case "firefox": {
                     WebDriverManager.firefoxdriver().setup();
+                    driver = new FirefoxDriver();
                     break;
                 }
                 default: {
